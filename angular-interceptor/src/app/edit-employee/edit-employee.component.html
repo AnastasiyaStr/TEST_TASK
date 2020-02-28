@@ -1,0 +1,46 @@
+<div *ngIf="updateEmp.empId!=null" class="col-md-6">
+  <h2 class="text-center">Edit Employee</h2>
+  <form>
+    <div class="form-group">
+      <label for="name">Name:</label>
+      <input type="name" [(ngModel)]="updateEmp.name" placeholder="{{updateEmp.name}}" name="name" class="form-control"
+             id="name">
+    </div>
+    <div class="form-group">
+      <input [(ngModel)]="updateEmp.active" type="radio" id="YES" name="active" checked="true" value="YES">
+      <label for="YES">YES</label><br>
+      <input [(ngModel)]="updateEmp.active" type="radio" id="NO" name="active" checked="true" value="NO">
+      <label for="NO">NO</label><br>
+    </div>
+    <button class="btn btn-success" (click)="updateEmployee(updateEmp)">Update</button>
+    <button class="btn btn-success" (click)="cancelEmp()">Cancel</button>
+  </form>
+</div>
+<div class="col-md-6">
+  <table class="table table-striped">
+    <thead>
+    <tr>
+      <th>Employee Id</th>
+      <th>Name</th>
+      <th>Active</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let employee of employees">
+      <td>{{employee.empId}}</td>
+      <td>{{employee.name}}</td>
+      <td>{{employee.active}}</td>
+
+      <td>
+        <button class="btn btn-danger" (click)="getEmployeeId(employee.empId)"> Update Employee</button>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+  <ul class="nav nav-pills">
+    <li class="nav-item" *ngFor="let p of pages; let i=index">
+      <a class="nav-link " href="" (click)="setPage(i,$event)">{{i + 1}}</a>
+    </li>
+  </ul>
+</div>
+

@@ -1,0 +1,28 @@
+<input type="search"  [(ngModel)]="this.search1">
+<button class="btn btn-success" (click)="search()">Search</button>
+
+<table class="table table-striped">
+  <thead>
+  <tr>
+    <th>Name</th>
+    <th>Active</th>
+<!--    <th>Id</th>-->
+    <th>Department</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let employee of employees">
+    <td>{{employee.name}}</td>
+    <!--          <td>{{employee.designation}}</td>-->
+    <td>{{employee.active}}</td>
+<!--    <td>{{employee.empId}}</td>-->
+    <td>{{employee.department.depName}}</td>
+
+    <!--        <td><button class="btn btn-danger" (click)="deleteEmployee(employee)"> Update Employee</button></td>-->
+  </tr>
+  </tbody>
+</table>
+
+<!--<div *ngIf="(folderObjs | filter:search).length <1">-->
+<!--  Not Found-->
+<!--</div>-->

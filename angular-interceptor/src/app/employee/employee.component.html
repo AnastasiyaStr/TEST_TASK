@@ -1,0 +1,26 @@
+<div class="col-md-6">
+  <table class="table table-striped">
+  <thead>
+  <tr>
+    <th>Name</th>
+    <th>Active</th>
+    <th>Id</th>
+    <th>Department</th>
+    </tr>
+  </thead>
+  <tbody>
+      <tr *ngFor="let employee of employees">
+          <td>{{employee.name}}</td>
+        <td>{{employee.active}}</td>
+        <td>{{employee.empId}}</td>
+        <td>{{employee.department.depName}}</td>
+          <td><button class="btn btn-danger" (click)="deleteEmployee(employee)"> Delete Employee</button></td>
+          </tr>
+  </tbody>
+    </table>
+  <ul class="nav nav-pills">
+    <li class="nav-item" *ngFor="let p of pages; let i=index">
+      <a  class="nav-link " href="" (click)="setPage(i,$event)" >{{i+1}}</a>
+    </li>
+  </ul>
+  </div>

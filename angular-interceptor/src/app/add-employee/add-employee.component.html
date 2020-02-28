@@ -1,0 +1,21 @@
+<div class="col-md-6">
+  <h2 class="text-center">Add Employee</h2>
+  <form>
+    <div class="form-group">
+      <label for="name">Name:</label>
+      <input type="name" [(ngModel)]="employee.name" placeholder="Name" name="name" class="form-control" id="name">
+    </div>
+    <div class="form-group">
+      <input  type="radio" id ="YES" name="active" value="YES" (click)="click($event)">
+      <label for="YES">YES</label><br>
+      <input type="radio" id="NO" name="active" checked="true" value="No" (click)="click($event)" >
+      <label for="NO">NO</label><br>
+    </div>
+    <select *ngIf="departments" [value]="selected" (change)="setDepartment($event.target.value)"id="ddOwnerLevel">
+      <option [value]="0" disabled>Select</option>
+      <option *ngFor="let ownerLevel of departments" [value]="ownerLevel.depId">{{ownerLevel.depName}}</option>
+    </select>
+    <button class="btn btn-success" (click)="createEmployee()">Create</button>
+    <button class="btn btn-success" (click)="cancelEmp()">Cancel</button>
+  </form>
+  </div>
